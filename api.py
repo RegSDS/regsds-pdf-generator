@@ -1,8 +1,13 @@
 from flask import Flask, Response, request
 import pdfkit
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-
+appPort = os.getenv('PORT')
+print(appPort)
 @app.route('/generate-pdf/grade-calculator', methods=["POST"])
 def generateGradeCalculatorPdf():
   body = request.get_json()
@@ -88,4 +93,4 @@ def generateGradeAssessmentPdf():
   response = Response(pdf, headers=headers)
   return response
 
-app.run()
+app.run(port=appPort)
