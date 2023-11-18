@@ -1,4 +1,5 @@
 from flask import Flask, Response, request
+from flask_cors import CORS
 import pdfkit
 from dotenv import load_dotenv
 import os
@@ -7,6 +8,8 @@ load_dotenv()
 
 app = Flask(__name__)
 appPort = os.getenv('PORT')
+
+CORS(app) 
 
 @app.route('/generate-pdf/grade-calculator', methods=["POST"])
 def generateGradeCalculatorPdf():
@@ -42,6 +45,8 @@ def generateGradeCalculatorPdf():
       </body>
     </html>
   """
+
+  # Generate PDF
   pdf = pdfkit.from_string(html, False)
 
   headers = {
@@ -83,6 +88,7 @@ def generateGradeAssessmentPdf():
                   </table>
                 </body>
               </html>"""
+  # Generate PDF
   pdf = pdfkit.from_string(html, False)
 
   headers = {
