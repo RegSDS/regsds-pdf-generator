@@ -7,7 +7,7 @@ load_dotenv()
 
 app = Flask(__name__)
 appPort = os.getenv('PORT')
-print(appPort)
+
 @app.route('/generate-pdf/grade-calculator', methods=["POST"])
 def generateGradeCalculatorPdf():
   body = request.get_json()
@@ -93,4 +93,4 @@ def generateGradeAssessmentPdf():
   response = Response(pdf, headers=headers)
   return response
 
-app.run(port=appPort)
+app.run(host="0.0.0.0", port=appPort)
