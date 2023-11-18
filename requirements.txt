@@ -1,3 +1,4 @@
 flask
 pdfkit
 python-dotenv
+flask_cors
