@@ -51,16 +51,6 @@ def generateGradeCalculatorPdf():
 def generateGradeAssessmentPdf():
   body = request.get_json()
   print(body)
-  gradeSummary = ""
-  for grade in body["grades"]:
-    gradeSummary += f"""
-      <tr>
-        <td style="border: 1px solid black">{grade["gradeLetter"]}</td>
-        <td style="border: 1px solid black">{grade["ceiling"]}</td>
-        <td style="border: 1px solid black">{grade["floor"]}</td>
-        <td style="border: 1px solid black">{grade["count"]}</td>
-      </tr>
-    """
   
   studentData = ""
   for student in body["students"]:
@@ -76,18 +66,7 @@ def generateGradeAssessmentPdf():
                 <body>
                   <h1>Grade assessment</h1>
                   <p>Course: {body["course"]}</p>
-                  <p>Instrutor: {body["name"]}</p>
                   <p>Grade Average: {body["gradeAverage"]}</p>
-                  <h2>Grade Summary</h2>
-                  <table style="border: 1px solid black">
-                    <tr>
-                      <th style="border: 1px solid black">Grade letter</th>
-                      <th style="border: 1px solid black">Min</th>
-                      <th style="border: 1px solid black">Max</th>
-                      <th style="border: 1px solid black">Count</th>
-                    </tr>
-                    {gradeSummary}
-                  </table>
                   <h2>Student Summary</h2>
                   <table style="border: 1px solid black">
                     <tr>
