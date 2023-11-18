@@ -1,12 +1,15 @@
 # pdf-generator
 
 Step1: pip3 install -r requirements.txt
+
 Step2: python3 api.py
 
 # Generate pdf for grade calculator
 
 Method: POST
+
 endpoint: /generate-pdf/grade-calculator
+
 example request:
 
 ```
@@ -37,7 +40,9 @@ example request:
 # Generate pdf for grade assessment
 
 Method: POST
+
 endpoint: /generate-pdf/grade-assessment
+
 example request:
 
 ```
