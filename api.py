@@ -8,8 +8,12 @@ load_dotenv()
 
 app = Flask(__name__)
 appPort = os.getenv('PORT')
-
+print(appPort)
 CORS(app) 
+
+@app.route("/healthy", methods=["GET"])
+def getHealthy():
+  return "hello world"
 
 @app.route('/generate-pdf/grade-calculator', methods=["POST"])
 def generateGradeCalculatorPdf():
